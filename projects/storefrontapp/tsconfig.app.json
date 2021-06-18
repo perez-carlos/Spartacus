@@ -1,0 +1,16 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "es2020",
+    "outDir": "../../out-tsc/app",
+    "strict": false, // TODO: Fix strict errors and remove this option
+    "types": [],
+    "target": "es2015"
+  },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts",
+    "src/environments/models/build.process.env.d.ts"
+  ],
+  "include": ["projects/storefrontapp/src/**/*.d.ts"]
+}

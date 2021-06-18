@@ -1,0 +1,317 @@
+@import '../../theme';
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/custom-forms';
+
+.form-control {
+  margin-bottom: 0.25rem;
+  &:focus {
+    border-color: var(--cx-color-secondary);
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+}
+
+cx-form-errors {
+  display: none;
+
+  &.control-invalid {
+    &.control-dirty,
+    &.control-touched {
+      display: initial;
+    }
+  }
+
+  p {
+    font-size: 14px;
+    margin: 6px 0;
+    padding-inline-start: 25px;
+    position: relative;
+    word-break: break-word;
+
+    &::before,
+    &::after {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      width: 20px;
+      height: 20px;
+    }
+
+    &::before {
+      content: '';
+      background-color: var(--cx-color-danger);
+      border-radius: 50%;
+    }
+
+    &::after {
+      content: '!';
+      color: var(--cx-color-inverse);
+      font-weight: var(--cx-font-weight-bold);
+      text-align: center;
+      line-height: 20px;
+    }
+
+    &:focus {
+      box-shadow: none;
+      -webkit-box-shadow: none;
+    }
+  }
+}
+
+input,
+input[type='checkbox'],
+input[type='radio'],
+textarea {
+  &.ng-invalid {
+    &.ng-dirty,
+    &.ng-touched {
+      border-color: var(--cx-color-danger);
+    }
+  }
+}
+
+ng-select.ng-invalid {
+  &.ng-dirty,
+  &.ng-touched {
+    .ng-select-container {
+      border-color: var(--cx-color-danger);
+    }
+  }
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  height: 22px;
+  width: 22px;
+  vertical-align: middle;
+  cursor: pointer;
+  line-height: 1.42857;
+  appearance: none;
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  font-size: inherit;
+  box-sizing: border-box;
+  outline: none;
+  border-style: solid;
+  border-width: 1px;
+  position: absolute;
+  margin-top: 0.3rem;
+  margin-inline-start: -2.25rem;
+}
+
+label {
+  display: block;
+  .label-content {
+    display: block;
+    margin-bottom: $label-margin-bottom;
+    &.bold {
+      font-weight: var(--cx-font-weight-semi);
+    }
+  }
+}
+
+legend {
+  margin-bottom: $label-margin-bottom;
+}
+
+.form-check {
+  margin-bottom: 18px;
+  padding-inline-start: 2.25rem;
+
+  label {
+    font-weight: var(--cx-font-weight-normal);
+  }
+
+  .form-check-label {
+    display: inline-block;
+    position: relative;
+    top: 4px;
+  }
+
+  input + .form-check-label {
+    color: var(--cx-color-text);
+
+    &::after {
+      content: none;
+    }
+  }
+
+  input:disabled + .form-check-label {
+    color: var(--cx-color-light);
+  }
+
+  input[role='checkbox'],
+  input[role='radio'] {
+    display: inline-block;
+
+    &:focus {
+      box-shadow: 0px 0px 0px 3px var(--cx-color-light);
+      border-color: var(--cx-color-secondary);
+    }
+  }
+
+  input[type='checkbox'] {
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 2px;
+    border-color: var(--cx-color-light);
+
+    &:checked {
+      font-style: normal;
+      border-color: var(--cx-color-primary);
+      background-color: var(--cx-color-primary);
+
+      &::after {
+        color: var(--cx-color-inverse);
+        position: absolute;
+
+        content: '';
+        display: inline-block;
+        height: 6px;
+        width: 9px;
+        top: 5px;
+        left: 5px;
+        border-width: 0 0 2px 2px;
+        border-style: solid;
+        border-color: var(--cx-color-inverse);
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+.form-control[type='text'] {
+  &:focus {
+    background-color: var(--cx-color-background);
+    box-shadow: none;
+    -webkit-box-shadow: none;
+  }
+}
+
+input[type='radio'] {
+  border-radius: 50%;
+  display: inline-block;
+  border-style: solid;
+  border-width: 2px;
+  border-color: var(--cx-color-light);
+  position: absolute;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    background-color: var(--cx-color-inverse);
+    left: 4px;
+    top: 4px;
+  }
+  &:checked {
+    border-color: var(--cx-color-primary) !important;
+    background-color: var(--cx-color-inverse);
+
+    &::after {
+      background-color: var(--cx-color-primary);
+    }
+  }
+}
+
+.form-message {
+  @include type(7);
+  &--danger {
+    color: var(--cx-color-danger);
+  }
+}
+
+.ng-select,
+.ng-select.ng-select-single {
+  .ng-dropdown-panel {
+    .ng-dropdown-panel-items {
+      .ng-option.ng-option-marked {
+        background-color: var(--cx-color-light);
+      }
+    }
+  }
+
+  .ng-arrow-wrapper {
+    .ng-arrow {
+      border-color: var(--cx-color-text) transparent transparent;
+      border-style: solid;
+      border-width: 5px 5px 2.5px;
+    }
+  }
+
+  .ng-select-container {
+    padding: 0.6875rem 0;
+    line-height: 1.6;
+    height: unset;
+
+    .ng-value-container {
+      padding-inline-start: 10px;
+    }
+  }
+}
+
+.ng-select {
+  .ng-arrow-wrapper {
+    padding-inline-end: 5px;
+  }
+}
+
+:focus {
+  @include visible-focus();
+}
+.form-control,
+input {
+  &:focus {
+    @include visible-focus();
+  }
+}
+.ng-select-focused {
+  @include visible-focus();
+}
+
+.form-check {
+  //crossbroswer input options without vendor prefixes
+
+  //radio buttons
+  input[type='radio'] {
+    appearance: none;
+  }
+  input[type='radio']::after {
+    visibility: hidden;
+  }
+  input[type='radio']:checked::after {
+    visibility: visible;
+  }
+
+  //checkboxes
+  input[type='checkbox'] {
+    appearance: none;
+  }
+}
+
+.form-check {
+  //crossbrowser radio button
+  input[type='radio'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+  input[type='radio']::after {
+    visibility: hidden;
+  }
+  input[type='radio']:checked::after {
+    visibility: visible;
+  }
+
+  //crossbrowser checkbox button
+  input[type='checkbox'] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+}

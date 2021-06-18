@@ -1,0 +1,44 @@
+html[dir='rtl'] cx-breadcrumb nav span:not(:last-child):after {
+  content: '\\';
+}
+
+%cx-breadcrumb {
+  display: flex;
+  flex-direction: column;
+
+  color: currentcolor;
+  background-color: var(--cx-color-background);
+
+  padding: var(--cx-spatial-base);
+  h1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+  }
+
+  nav {
+    font-size: 0.85rem;
+    padding: 5px 0;
+
+    display: flex;
+    justify-content: center;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    span {
+      color: var(--cx-color-secondary);
+
+      &:not(:last-child):after {
+        content: '/';
+      }
+      a {
+        text-transform: capitalize;
+        color: inherit;
+        padding: 5px 5px;
+      }
+    }
+  }
+}

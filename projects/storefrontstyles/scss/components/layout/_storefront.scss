@@ -1,0 +1,35 @@
+@import './progress-bar';
+
+%cx-storefront {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  &:focus {
+    outline: none;
+  }
+
+  &.start-navigating {
+    @extend %progress-bar, %progress-bar-loading !optional;
+  }
+  &.stop-navigating {
+    @extend %progress-bar, %progress-bar-loaded !optional;
+  }
+
+  > footer {
+    margin-top: auto;
+
+    cx-paragraph {
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // prevents visible focus when the UI is not used by keyboard.
+  .mouse-focus {
+    :focus,
+    .ng-select-focused {
+      --cx-visual-focus-width: 0;
+    }
+  }
+}
